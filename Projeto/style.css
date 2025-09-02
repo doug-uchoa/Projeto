@@ -1,0 +1,215 @@
+* { 
+  padding: 0;
+  margin: 0;
+  
+  box-sizing: border-box;
+   /* faz com que a medida seja feita com a borda da caixa */
+}
+
+
+:root { /*definindo variavel*/
+  --text-color: white;
+  --bg-url:url(./assest/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.50);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover:rgba(255, 255, 255, 0.05);
+  --hightlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assest/moon-stars.svg);
+
+}
+
+.light {
+  --text-color:black;
+  --bg-url:url(./assest/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.50);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover:rgba(0,0,0,0.02);
+  --hightlight-color: rgba( 0, 0, 0, 0.10);
+  --switch-bg-url: url(./assest/sun.svg);
+}
+
+
+body { /*background-image: url(./assets/bg-mobile.jpg)
+   background-repeat: no-repeat; não repetir a imagem /
+   background-position: center top; centralizando no meio e no topo a imagem 
+   background-size: cover; faz com que a imagem se ajuste de acordo com a pagina /*background: color imagem repeat position/size
+
+   foi feito um atalho abaixo com todos códigos acima simplificando */
+
+  background: var(--bg-url)no-repeat top center/cover;
+
+   /*display:line e display:block faz a diferença entre deixar algo em uma linha ou separar tudo
+   e "pular" um paragrafo
+
+   a TAG <div> é um elemento BLOCK porque ela já faz essa função 
+   text-align é uma propriedade que define como o texto é alinhado horizontalmente dentro de um elemento, como um parágrafo ou uma divisão (div): center; consegue mover a imagem */
+}
+
+body * { /* O * ele aplica o efeito em todos as elementos*/
+  font-family: 'inter', sans-serif;
+  color: var(--text-color)
+}
+
+#container {
+ width: 360px; /*largura*/
+ /* border: 1px solid red; borda e cor */
+ margin: 56px auto 0px;  /* ajusta a margin do produto */
+ padding: 0 24px;
+
+
+}
+
+
+#profile {
+  text-align: center;
+  padding: 24px;
+
+}
+
+  #profile img {
+    width: 112px;
+    
+  }
+  #profile p{
+  font-weight: 500; /* contrle o negrito da letra*/
+  font-size: 16px; /*por padrão os navegadores já tem essa fonte de px*/
+  line-height: 24px; /*mantem a altura da linha*/
+  padding: 8px;
+
+}
+
+/*alinhamento de display bloc*/
+
+#switch {
+  position: relative; /*permite que tudo seja feito dentro do botão e não que a imagem ande pela caixa*/
+  width: 64px;
+
+  margin: 4px auto;
+
+  
+}
+
+/* alinhamentos abaixo para centralizar um background */
+
+#switch button{
+  width:32px;
+  height:32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+
+  /* alinhamento  */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%); /*move o elemento para cima ou para baixo*/
+
+}
+
+.light #switch button { /* faz o botão andar para direita e voltar para esquerda*/
+  right:0;
+  left: initial;
+}
+
+
+#switch span { /* span por padrão tem display inline por isso foi colocado block*/
+  display: block;
+  width: 64px;
+  height: 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  border-radius: 9999px;
+}
+
+
+/* links */
+
+ul { /* define como vai ser organizado a lista*/
+  list-style: none; /*tirando estilo da lista não das letras*/
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 24px 0;
+}
+
+/*alinhamento de display flex e listas abaixo*/
+
+ul li a{ /*defenindo elementos dentro da lista, botão preenchimento e etc*/
+  display: flex;
+  align-items: center; /*alinha os item de forma vertical no centro*/
+  justify-content: center; /* pega os elementos e alinha no meio*/
+
+  padding: 16px 24px;
+
+  background: var(--surface-color); /*colocando a cor no preenchimento da lista*/
+  border: 1px solid var(--stroke-color); /*deixando a borda da lista um pouco redonda*/
+  border-radius: 8px;
+  backdrop-filter: blur(4px); /*fazendo a lista ficar um pouco embaçada, estilo*/
+  -webkit-backdrop-filter: blur(4px); /*serve para ser disponivel em outros navegadores ex:safari*/
+
+  text-decoration: none; /*tira a linha em baixa das palavras*/
+  font-weight: 500;
+
+  transition: background 0.2s ;
+}
+
+
+/*pseudo-selector ele aplica coisas quando passa o mouse em cima do botão */
+
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid  var(--text-color);
+
+}
+
+/*social-links*/
+
+#social-links{
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+
+  padding: 24px 0;
+  
+  font-size: 24px;
+}
+
+#social-links a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+
+  transition: 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--hightlight-color);
+  padding: 16px;
+}
+
+/*alinhamento de texto abaixo*/
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+
+  font-size: 14px;
+
+  padding: 24px;
+
+  gap: 8px;
+}
+
+
+
