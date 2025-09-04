@@ -51,12 +51,11 @@ body * { /* O * ele aplica o efeito em todos as elementos*/
 }
 
 #container {
- width: 360px; /*largura*/
+ width: 100%; /*largura*/
+ max-width: 588px;
  /* border: 1px solid red; borda e cor */
  margin: 56px auto 0px;  /* ajusta a margin do produto */
  padding: 0 24px;
-
-
 }
 
 
