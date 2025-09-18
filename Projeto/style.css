@@ -37,7 +37,7 @@ body { /*background-image: url(./assets/bg-mobile.jpg)
    foi feito um atalho abaixo com todos códigos acima simplificando */
 
   background: var(--bg-url)no-repeat top center/cover;
-  
+
 
    /*display:line e display:block faz a diferença entre deixar algo em uma linha ou separar tudo
    e "pular" um paragrafo
@@ -106,13 +106,17 @@ body * { /* O * ele aplica o efeito em todos as elementos*/
   z-index: 1;
   transform: translateY(-50%); /*move o elemento para cima ou para baixo*/
 
+  animation: animando-retorno 0.2s; 
 }
 
 .light #switch button { /* faz o botão andar para direita e voltar para esquerda*/
-  right:0;
-  left: initial;
+  animation: animando 0.4s forwards; 
 }
 
+  #switch button:hover{
+    outline: 8px solid var(--hightlight-color)
+  }
+ 
 
 #switch span { /* span por padrão tem display inline por isso foi colocado block*/
   display: block;
@@ -222,4 +226,31 @@ footer {
     --bg-url: url(./assest/bg-desktop-light.jpg)
   }
 /* essa regra funciona apenas se tiver a linha de viewport no html */
+}
+
+
+/* animation */
+
+@keyframes animando { 
+  from{
+    left: 0%;
+
+  }
+  to{
+    left: 50% 
+
+  }
+
+}
+
+@keyframes animando-retorno {
+  from{
+    left: 50%;
+
+  }
+  to{
+    left: 0%;
+
+  }
+
 }
