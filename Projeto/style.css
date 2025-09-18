@@ -37,6 +37,7 @@ body { /*background-image: url(./assets/bg-mobile.jpg)
    foi feito um atalho abaixo com todos códigos acima simplificando */
 
   background: var(--bg-url)no-repeat top center/cover;
+  
 
    /*display:line e display:block faz a diferença entre deixar algo em uma linha ou separar tudo
    e "pular" um paragrafo
@@ -211,4 +212,14 @@ footer {
 }
 
 
+/* media queries */
 
+@media (min-width:700px){
+  :root {
+    --bg-url: url(./assest/bg-desktop.jpg)
+  }
+  .light{
+    --bg-url: url(./assest/bg-desktop-light.jpg)
+  }
+/* essa regra funciona apenas se tiver a linha de viewport no html */
+}
